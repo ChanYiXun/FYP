@@ -1,0 +1,85 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>iFrame</title>
+        <style>
+            #pdf-viewer {
+                width: 100%;
+                height: 600px;
+                overflow: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to My Iframe Website</h1>
+
+        <div id="pdf-viewer"></div>
+
+        <p>This is some additional content on the page.</p>
+
+        <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+        <script>
+            const url = "sample.pdf"; // Replace with the actual path to your PDF file
+
+            // Asynchronous download PDF
+            const loadingTask = pdfjsLib.getDocument(url);
+            loadingTask.promise.then(function (pdf) {
+                // Fetch the first page
+                pdf.getPage(1).then(function (page) {
+                    const scale = 1.5;
+                    const viewport = page.getViewport({ scale });
+
+                    // Prepare canvas using PDF page dimensions
+                    const canvas = document.createElement("canvas");
+                    const context = canvas.getContext("2d");
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+
+                    // Render PDF page into canvas context
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport,
+                    };
+                    page.render(renderContext).promise.then(function () {
+                        document.getElementById("pdf-viewer").appendChild(canvas);
+                    });
+                });
+            });
+        </script>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 40%;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+    </style>
+    <title>PDF Iframe Example</title>
+</head>
+
+<body>
+    <div class="card">
+        <h1>PDF Iframe Example</h1>
+        <iframe src="sample.pdf" width="800" height="600"></iframe>
+    </div>
+</body>
+
+</html>

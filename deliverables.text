@@ -1,0 +1,9 @@
+•	Research on the iframe options suitable for OL platform requirements to support
+ PDF, JPG, PNG, MP4 MP3, & HTML file types for web platform
+•	Use vue JS to allow us to migrate frontend codes to reactJs (when we migrate to microservices at end of 2023)
+•	Analyse the pros and cons
+•	Consider the security risks and propose mitigation
+•	Document the above 
+•	Present the recommendations to OL and the criteria used for the recommendations including security risks and users’ expectations
+•	Create prototype based on the selected iframe solution and address the concerns using mock up data
+•	In mobile app we do not use iframes, we use only viewers for display of various asset types. 

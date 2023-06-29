@@ -1,0 +1,49 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue.js Iframe Example</title>
+  <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Vue.js Iframe Example</h1>
+    <input type="text" v-model="iframeSrc" placeholder="Enter iframe source URL">
+    <br>
+    <iframe v-bind:src="iframeSrc" width="800" height="600"></iframe>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        iframeSrc: 'https://www.uxbooth.com/articles/the-difference-between-ia-and-ux-design/'
+      }
+    });
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue.js Iframe Test</title>
+  <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Vue.js Iframe Example</h1>
+    <iframe :src="iframeSrc" width="1100" height="400"></iframe>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        iframeSrc: ''
+      },
+      created() {
+        this.iframeSrc = 'https://www.uxbooth.com/articles/the-difference-between-ia-and-ux-design/';
+      }
+    });
+  </script>
+</body>
+</html>

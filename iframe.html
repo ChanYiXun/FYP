@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3px;
+            background-color: DarkSalmon;
+            color: white;
+        }
+    </style>
+
+    <title>Vue.js Iframe Test</title>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">Explore</a></li>
+        <li><a href="#contact">Create</a></li>
+        <li><a href="#about">Events</a></li>
+        <li><a href="#contact">Login</a></li>
+        <li><a href="#about">Sign Up</a></li>
+    </ul>
+
+    <div id="app">
+        <h1>Vue.js Iframe Example</h1>
+        <iframe :src="iframeSrc" width="1100" height="400"></iframe>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                iframeSrc: ''
+            },
+            created() {
+                this.iframeSrc = 'https://www.uxbooth.com/articles/the-difference-between-ia-and-ux-design/';
+            }
+        });
+    </script>
+
+    <footer>
+        <p>Author: Hege Refsnes<br>
+            <a href="mailto:hege@example.com">hege@example.com</a>
+        </p>
+    </footer>
+
+
+</body>
+
+</html>
