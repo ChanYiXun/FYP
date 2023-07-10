@@ -1,23 +1,10 @@
 <?php
 if(isset($_POST['search']))
-{
-    $valueToSearch = $_POST['valueToSearch'];
-    // search in all table columns
-    // using concat mysql function
-    $query = "SELECT * FROM `users` WHERE CONCAT(`id`, `fname`, `lname`, `age`) LIKE '%".$valueToSearch."%'";
-    $search_result = filterTable($query);
-    
-}
- else {
-    $query = "SELECT * FROM `users`";
-    $search_result = filterTable($query);
-}
-
 session_start();
 // php file that contains the common database connection code
 include "dbFunctions.php";
 
-$queryItems = "SELECT * FROM assets";
+$queryItems = "SELECT * FROM asset";
 
 $resultItems = mysqli_query($link, $queryItems) or
         die(mysqli_error($link));
@@ -109,6 +96,134 @@ body {
             color: white;
         }
     </style>
+
+<style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 16px Arial;
+        }
+
+        .navbar-brand {
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+
+        img,
+        svg {
+            width: 100px;
+        }
+
+        /*the container must be positioned relative:*/
+        .autocomplete {
+            position: relative;
+            display: inline-block;
+        }
+
+        input {
+            border: 1px solid transparent;
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            background-color: #f1f1f1;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: DodgerBlue;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .autocomplete-items {
+            position: absolute;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            /*position the autocomplete items to be the same width as the container:*/
+            top: 100%;
+            left: 0;
+            right: 0;
+        }
+
+        .autocomplete-items div {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            border-bottom: 1px solid #d4d4d4;
+        }
+
+        /*when hovering an item:*/
+        .autocomplete-items div:hover {
+            background-color: #e9e9e9;
+        }
+
+        /*when navigating through the items using the arrow keys:*/
+        .autocomplete-active {
+            background-color: DodgerBlue !important;
+            color: #ffffff;
+        }
+
+        iframe {
+            padding-left: 100px;
+        }
+
+        /* Create four equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 10px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - makes the four columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+
+        .button {
+            background-color: #4caf50; /* Green */
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            padding-top: 10px;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 4px;
+        }
+
+        .button1 {
+            background-color: #b88051;
+            color: black;
+        }
+
+        .button1:hover {
+            background-color: grey;
+            color: white;
+        }
+    </style>
     </head>
     <body>
     <ul>
@@ -132,22 +247,6 @@ body {
     </div>
     </form>
 
-    <?php
-    if(isset($_POST['search']))
-    {
-        $valueToSearch = $_POST['valueToSearch'];
-        // search in all table columns
-        // using concat mysql function
-        $query = "SELECT * FROM assets WHERE CONCAT(`blog_id`, `title`, `blog`) LIKE '%".$valueToSearch."%'";
-        $search_result = filterTable($query);
-                            
-    }
-    else {
-            $query = "SELECT * FROM tb_blogs";
-            $search_result = filterTable($query);
-        }
-
-    ?>
 
     <!-- Row -->
     <div class="row">
@@ -156,10 +255,9 @@ body {
     <div class="card card-shadow border-0 mb-4"><a style="text-decoration: none "href="iframe.php">
     <div class="card-body d-flex">
     <div class="">
+    <img style="width:400px; height:400px;" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($arrContent[0]['thumbnail']);?>"/>
     <h4 class="card-title "><?php echo $arrContent[0]['title']?></h4>
-    <p class="mt-3">Skill Tags: <?php echo $arrContent[0]['skill_tags']?></p>
     <p class="mt-3">Publisher: <?php echo $arrContent[0]['publisher']?></p>
-    <p class="mt-3">Category: <?php echo $arrContent[0]['category']?></p>
     <p class="mt-3">Author: <?php echo $arrContent[0]['author']?></p>
     <p class="mt-3">Intent: <?php echo $arrContent[0]['intent']?></p></br></br>
     </div>

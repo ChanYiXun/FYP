@@ -36,7 +36,7 @@ if (isset($_COOKIE['email'])) {
                     box-sizing: border-box;
                 }
 
-                button {
+                button {b
                     background-color: #04AA6D;
                     color: white;
                     padding: 14px 20px;
@@ -119,7 +119,7 @@ if (isset($_COOKIE['email'])) {
             color: white;
         }
     </style>
-
+ 
         </head>
         <body>
                     <ul>

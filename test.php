@@ -259,46 +259,89 @@ mysqli_close($link);
         </div>
     </nav>
 
-    <div id="app">
-        <iframe :src="iframeSrc" width="1600" height="800" style="margin-left:10%;"></iframe>
-    </div>
+    <div class="container-fluid p-3">
+        <div class="container-md">
+            <h2 class="text-bold"><b>Featured Content</b></h2>
+            <div class="row">
+                <div class="col-sm-3 p-3">
+                    <div class="card p-1 h-100">
+                    <img object-fit: contain; src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($arrContent[0]['thumbnail']);?>"/>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $arrContent[0]['title']?></h5>
+                            <p class="card-text"><i class="fa-regular fa-clock"></i><?php echo $arrContent[0]['duration']?></p>
+                        </div>
+                        <div class="card-footer">
+                            <i class="fa-solid fa-circle-user"></i>
+                            <?php echo $arrContent[0]['author']?>
+                            <button type="button" class="float-end" style="border:none" data-bs-toggle="tooltip"
+                                title="Add to Bookmarks"><i class="fa-solid fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
 
-    <script>
-        new Vue({
-            el: "#app",
-            data: {
-                iframeSrc: "",
-            },
-            created() {
-                this.iframeSrc =
-                    "<?php echo $arrContent[0]['content']?>";
-            },
-        });
-    </script>
+                <div class="col-sm-3 p-3">
+                    <div class="card p-1 h-100">
+                        <img src="images/userexp.jpg" cl alt="userexp">
+                        <div class="card-body">
+                            <h5 class="card-title">User Experience and Interface Design</h5>
+                            <p class="card-text"><i class="fa-regular fa-clock"></i>2h 45m</p>
+                        </div>
+                        <div class="card-footer">
+                            <i class="fa-solid fa-circle-user"></i>
+                            Julia Lee
+                            <button type="button" class="float-end" style="border:none" data-bs-toggle="tooltip"
+                                title="Add to Bookmarks"><i class="fa-solid fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 p-3">
+                    <div class="card p-1 h-100">
+                        <img src="images/appdev.jpg" class="card-img-top" alt="appdev">
+                        <div class="card-body">
+                            <h5 class="card-title">iOS App Development using Xcode and Swift</h5>
+                            <p class="card-text"><i class="fa-regular fa-clock"></i>4h 30m</p>
+                        </div>
+                        <div class="card-footer">
+                            <i class="fa-solid fa-circle-user"></i>
+                            Ryan Low
+                            <button type="button" class="float-end" style="border:none" data-bs-toggle="tooltip"
+                                title="Add to Bookmarks"><i class="fa-solid fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="row" style="margin-left: 50px; margin-right: 50px; ">
-        <div class="column" style="background-color: white;">
-            <h2 style="font-size:22px"><b>Uploaded by</b></h2>
-            <p style="font-size:16px">Poh Moi</p>
-        </div>
-        <div class="column" style="background-color: white">
-            <h2 style="font-size:22px"><b>Authored by</b></h2>
-            <p style="font-size:16px">GreenSafe</p>
-        </div>
-        <div class="column" style="background-color: white">
-            <h2 style="font-size:22px"><b>Additional info</b></h2>
-            <p style="font-size:16px">3 days</p>
-        </div>
-        <div class="column" style="background-color: white; color: grey;">
-            PNG·270 mins·published 18/05/2023
-        </div>
-    </div>
+                <div class="col-sm-3 p-3">
+                    <div class="card p-1 h-100">
+                        <img src="images/frontend.jpg" class="card-img-top" alt="frontend">
+                        <div class="card-body">
+                            <h5 class="card-title">Front-end JavaScript Frameworks</h5>
+                            <p class="card-text"><i class="fa-regular fa-clock"></i>3h 45m</p>
+                        </div>
+                        <div class="card-footer">
+                            <i class="fa-solid fa-circle-user"></i>
+                            Azhar Kamar
+                            <button type="button" class="float-end" style="border:none" data-bs-toggle="tooltip"
+                                title="Add to Bookmarks" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+                                aria-controls="offcanvasBottom"><i class="fa-solid fa-bookmark"></i></button>
 
-    <div class="intent-asset" style="padding-left: 50px; padding-right: 50px;">
-        <h2>Intent of this Asset</h2>
-        <p>"Next to explaining what I do for a living, the second question I most frequently hear is: "What's the difference between information Architecture and User Experience?" The line always seems to blur between the two, even though there's clearly a difference. How should I go about explaining it?"</p>
-        AUGUST 21ST,2012
-    </div>
+                            <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom"
+                                aria-labelledby="offcanvasBottomLabel">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body small">
+                                    ...
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
     <section class="p-3 border-bottom"></section>
     <footer class="navbar navbar-expand-sm" style="background-color: #3a2718">
