@@ -39,6 +39,134 @@ mysqli_close($link);
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Osmosis Learn</title>
     <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 16px Arial;
+        }
+
+        .navbar-brand {
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+
+        img,
+        svg {
+            width: 100px;
+        }
+
+        /*the container must be positioned relative:*/
+        .autocomplete {
+            position: relative;
+            display: inline-block;
+        }
+
+        input {
+            border: 1px solid transparent;
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            background-color: #f1f1f1;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: DodgerBlue;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .autocomplete-items {
+            position: absolute;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            /*position the autocomplete items to be the same width as the container:*/
+            top: 100%;
+            left: 0;
+            right: 0;
+        }
+
+        .autocomplete-items div {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            border-bottom: 1px solid #d4d4d4;
+        }
+
+        /*when hovering an item:*/
+        .autocomplete-items div:hover {
+            background-color: #e9e9e9;
+        }
+
+        /*when navigating through the items using the arrow keys:*/
+        .autocomplete-active {
+            background-color: DodgerBlue !important;
+            color: #ffffff;
+        }
+
+        iframe {
+            padding-left: 100px;
+        }
+
+        /* Create four equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 10px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - makes the four columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+
+        .button {
+            background-color: #4caf50; /* Green */
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            padding-top: 10px;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-radius: 4px;
+        }
+
+        .button1 {
+            background-color: #b88051;
+            color: black;
+        }
+
+        .button1:hover {
+            background-color: grey;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -65,7 +193,7 @@ mysqli_close($link);
                 class="navbar-brand nabarimg"
                 style="cursor: default; width: 20%"
                 href=""
-                ><img src="osmosis logo.png" alt="pod-logo" style="width: 100px"
+                ><img src="osmosis logo.png" alt="pod-logo"
             /></a>
             <!-- Collapsible wrapper -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -143,7 +271,7 @@ mysqli_close($link);
             },
             created() {
                 this.iframeSrc =
-                    "<?php echo $arrContent[5]['content']?>";
+                    "<?php echo $arrContent[4]['content']?>";
             },
         });
     </script>
@@ -151,25 +279,25 @@ mysqli_close($link);
     <div class="row" style="margin-left: 50px; margin-right: 50px; ">
         <div class="column" style="background-color: white;">
             <h2 style="font-size:22px"><b>Uploaded by</b></h2>
-            <p style="font-size:16px">Poh Moi</p>
+            <p style="font-size:16px"><?php echo $arrContent[4]['publisher']?></p>
         </div>
         <div class="column" style="background-color: white">
             <h2 style="font-size:22px"><b>Authored by</b></h2>
-            <p style="font-size:16px">GreenSafe</p>
+            <p style="font-size:16px"><?php echo $arrContent[4]['author']?></p>
         </div>
         <div class="column" style="background-color: white">
             <h2 style="font-size:22px"><b>Additional info</b></h2>
             <p style="font-size:16px">3 days</p>
         </div>
         <div class="column" style="background-color: white; color: grey;">
-            PNG·270 mins·published 18/05/2023
+            PNG·<?php echo $arrContent[4]['duration']?>·published 18/05/2023
         </div>
     </div>
 
     <div class="intent-asset" style="padding-left: 50px; padding-right: 50px;">
         <h2>Intent of this Asset</h2>
-        <p>"Next to explaining what I do for a living, the second question I most frequently hear is: "What's the difference between information Architecture and User Experience?" The line always seems to blur between the two, even though there's clearly a difference. How should I go about explaining it?"</p>
-        AUGUST 21ST,2012
+        <p>"<?php echo $arrContent[4]['intent']?></p>
+        <?php echo $arrContent[4]['pub_date']?>
     </div>
 
     <section class="p-3 border-bottom"></section>
@@ -213,4 +341,3 @@ mysqli_close($link);
         </div>
     </div>
 </body>
-
