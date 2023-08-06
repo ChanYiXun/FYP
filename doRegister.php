@@ -12,7 +12,7 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $username = $_POST['username'];
 $password = $_POST['password'];
-$queryCheck = "SELECT username FROM users
+$queryCheck = "SELECT username FROM user
          WHERE username='$username'";
 
 $queryName = mysqli_query($link,$queryCheck);
